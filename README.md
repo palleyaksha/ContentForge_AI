@@ -10,7 +10,7 @@ pinned: false
 ---
 ## Live Demo
 
-Hugging Face Space:[
+Hugging Face Space:
 https://huggingface.co/spaces/palleyaksha/ContentForge_AI
 
 
