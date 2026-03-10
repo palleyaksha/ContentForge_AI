@@ -99,15 +99,14 @@ A simple content studio to generate tweets, hashtags, captions, short stories, a
 
 
 if __name__ == "__main__":
-    # Hugging Face Spaces sets PORT; use 7860 locally.
-    port_env = os.getenv("PORT")
-    server_port = int(port_env) if port_env else None
-    # Locally, bind to 127.0.0.1 so the printed URL is reachable in your browser.
-    # On Spaces, we must bind to 0.0.0.0.
-    server_name = "0.0.0.0" if port_env else "127.0.0.1"
+    # Hugging Face Spaces sets SPACE_ID and PORT.
+    # If we bind to 127.0.0.1 inside Spaces, the app will stay "Starting..." forever.
+    is_spaces = bool(os.getenv("SPACE_ID") or os.getenv("PORT"))
+    server_name = "0.0.0.0" if is_spaces else "127.0.0.1"
+    server_port = int(os.getenv("PORT", "7860")) if is_spaces else None
     interface.queue().launch(
         server_name=server_name,
         server_port=server_port,
         show_error=True,
-        share=True,
+        share=False,
     )
