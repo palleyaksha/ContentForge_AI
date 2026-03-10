@@ -8,6 +8,11 @@ python_version: "3.11"
 app_file: app.py
 pinned: false
 ---
+## Live Demo
+
+Hugging Face Space:[
+https://huggingface.co/spaces/palleyaksha/ContentForge_AI
+
 
 # AI Content Toolkit using LLMs 🚀
 
